@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/alhasandev-calculator/calculator.default.css"
+    />
+
+    <title>Test Input Calculator</title>
+  </head>
+  <body style="display: grid; gap: 6rem">
+    <div class="calc-wrapper-1"></div>
+    <div class="calc-wrapper-2"></div>
+    <input
+      type="text"
+      name="calc_1"
+      class="input-calculator"
+      style="width: 100%; padding: 0.5rem 1rem; box-sizing: border-box"
+    />
+    <input
+      type="text"
+      name="calc_2"
+      class="input-calculator"
+      data-type="on"
+      style="width: 100%; padding: 0.5rem 1rem; box-sizing: border-box"
+    />
+    <input
+      type="calculator"
+      name="calc_3"
+      style="width: 100%; padding: 0.5rem 1rem; box-sizing: border-box"
+    />
+
+    <script src="../node_modules/alhasandev-calculator/calculator.js"></script>
+    <script src="../input-calculator.js"></script>
+    <script src="./test.js" type="module"></script>
+  </body>
+</html>

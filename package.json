@@ -1,0 +1,21 @@
+{
+  "name": "input-calculator",
+  "version": "1.0.0",
+  "description": "simple calculator on html input element",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "type": "module",
+  "keywords": [
+    "html",
+    "alhasandev",
+    "calculator",
+    "input-calculator"
+  ],
+  "author": "albie",
+  "license": "ISC",
+  "dependencies": {
+    "alhasandev-calculator": "^1.1.0"
+  }
+}
