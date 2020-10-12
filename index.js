@@ -1,5 +1,5 @@
 // Import modules
-import Calculator from "./node_modules/alhasandev-calculator/index.js";
+import Calculator from "alhasandev-calculator";
 
 class InputCalculator {
   constructor() {}
