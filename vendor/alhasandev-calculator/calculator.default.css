@@ -1,0 +1,36 @@
+.calculator.wrapper {
+  width: 100%;
+  border: 1px solid black;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.calculator [role="display"] {
+  margin-bottom: 0.5rem;
+  border: 1px solid black;
+}
+
+.calculator [role="screen"] {
+  box-sizing: border-box;
+  text-align: right;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.calculator [role="controls"] {
+  display: grid;
+  column-gap: 0.5rem;
+  row-gap: 0.25rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.calculator [role="control"] {
+  cursor: pointer;
+  padding: 0.25rem;
+}
