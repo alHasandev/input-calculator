@@ -1,5 +1,5 @@
 # Ignore folders
 node_modules/
 .vscode/
-# vendor/
+vendor/
 # test/
