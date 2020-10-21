@@ -2,6 +2,8 @@
 
 Simple custom html element for input calculator type
 
+![alt text](https://alhasandev.github.io/input-calculator/test/preview.png)
+
 ## Instalation
 
 Run `npm i input-calculator`
@@ -16,28 +18,15 @@ Get default css file on [a link](https://github.com/alHasandev/calculator-js#css
 ## HTML
 
 ```
-<!-- Simple -->
 <input
-  type="calculator"
-  name="calc_2"
-  readonly
-  style="width: 100%; padding: 0.5rem 1rem; box-sizing: border-box"
+      type="calculator"
+      name="calc_3"
+      style="width: 100%; padding: 0.5rem 1rem; box-sizing: border-box"
+    />le="width: 100%; padding: 0.5rem 1rem; box-sizing: border-box"
 />
 
-<!-- OR -->
-<input
-  type="text"
-  name="calc_2"
-  class="input-calculator"
-  data-type="on"
-  style="width: 100%; padding: 0.5rem 1rem; box-sizing: border-box"
-/>
-
-<!-- If you want used it in common way -->
-<script src="./node_modules/alhasandev-calculator/calculator.js"></script>
-<script src="./node_modules/input-calculator/input-calculator.js"></script>
-
-<!-- OR if you clone project from github -->
+<!-- If you want used it in common way / web browser -->
+<!-- You must clone project from github -->
 <script src="./vendor/calculator/calculator.js"></script>
 <script src="./vendor/input-calculator/input-calculator.js"></script>
 
@@ -47,15 +36,11 @@ Get default css file on [a link](https://github.com/alHasandev/calculator-js#css
 
 ```
 // ES7 Module
-// import inputCalculator from "../index.js";
+// import inputCalculator from "input-calculator";
 
-// inputCalculator.init();
+// Common JS / Web Browser
+// You must include script for calculator js from github / alhasandev-calculator module from npm
 
-// Common JS
-// You must include script for calculator js / alhasandev-calculator module
-
-const inputCalculator = new InputCalculator();
-
-inputCalculator.init();
+inputCalculator.init(".input-calculator");
 
 ```
