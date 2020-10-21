@@ -1,6 +1,6 @@
 {
   "name": "input-calculator",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "simple calculator on html input element",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,6 @@
   },
   "type": "module",
   "keywords": [
-    "html",
     "javascript",
     "alhasandev",
     "calculator",
@@ -17,6 +16,6 @@
   "author": "albie",
   "license": "ISC",
   "dependencies": {
-    "alhasandev-calculator": "^1.1.0"
+    "alhasandev-calculator": "^1.2.3"
   }
 }

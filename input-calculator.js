@@ -1,117 +1,79 @@
-// Import modules
-// You must include calculator-js / alhasandev-calculator module before this module
-// import Calculator from "calculator.js";
+// test input calculator
+function attachCalcToInput(inputCalculators) {
+  inputCalculators.forEach((input) => {
+    input.setAttribute("readonly", true);
+    input.style.cursor = "pointer";
+    const calc = new Calculator();
 
-class InputCalculator {
-  init = (refIds = []) => {
-    const calcInput = this.getInputElemements(refIds);
+    // attach calculator to input element
 
-    // attach each calc input with calc html element
-    calcInput.forEach((input) => {
-      const wrapper = document.createElement("div");
-      const calc = new Calculator();
-      const calcHtml = calc.getHtmlElement();
-      calc.initControlsEvent();
-      calc.onEqualClick((result) => {
-        input.value = result;
-      });
+    const wrapper = document.createElement("div");
+    wrapper.style.display = "none";
+    wrapper.style.position = "absolute";
+    wrapper.style.top = input.offsetTop + input.offsetHeight + 5 + "px";
+    wrapper.style.width = "100%";
 
-      calc.extraFunction = () => (wrapper.style.display = "none");
-      calc.onClear = () => (input.value = "");
+    // const offsetRight =
+    //   document.body.offsetWidth - (input.offsetWidth - input.offsetLeft);
+    // wrapper.style.right = offsetRight + "px";
+    wrapper.style.left = input.offsetLeft + "px";
 
-      input.setAttribute("data-calculator-id", calc.getId());
-      input.addEventListener("click", (ev) => {
-        wrapper.style.display = "inline-block";
-      });
-
-      calcHtml.style.position = "absolute";
-
-      wrapper.style.display = "none";
-      wrapper.style.position = "absolute";
-      wrapper.style.top = input.offsetTop + input.offsetHeight + 5 + "px";
-      wrapper.style.left = input.offsetLeft + "px";
-      wrapper.style.width = "100%";
+    if (input.offsetWidth < 320) {
       wrapper.style.maxWidth = input.offsetWidth + "px";
-      wrapper.append(calcHtml);
-
-      input.after(wrapper);
-    });
-  };
-
-  // get calculator elements
-  getInputElemements = (refIds) => {
-    let elements = [];
-    if (refIds.length > 0) {
-      refIds.map((refId) => {
-        let element = document.getElementById(refId);
-        if (element) {
-          element.setAttribute("readonly", true);
-          elements.push(element);
-        }
-      });
     } else {
-      elements = document.getElementsByClassName("input-calculator");
-      const inputsByType = document.querySelectorAll("input[type=calculator]");
-
-      elements = [...elements, ...inputsByType];
-
-      elements.forEach((input) => {
-        if (!input.classList.contains("input-calculator"))
-          input.classList.add("input-calculator");
-
-        // input.setAttribute("readonly", true);
-        if (!!input.dataset.type && input.dataset.type === "on") {
-          input.setAttribute("type", "text");
-          let value = "";
-          input.addEventListener("keyup", (ev) => {
-            switch (ev.key) {
-              case " ":
-              case "0":
-              case "1":
-              case "2":
-              case "3":
-              case "4":
-              case "5":
-              case "6":
-              case "7":
-              case "8":
-              case "9":
-              case "+":
-              case "-":
-              case "*":
-              case "/":
-                value += ev.key;
-                console.log("prev value", value);
-                break;
-              case "Enter":
-                input.value = Function(
-                  `"use strict";return (${input.value})`
-                )();
-                value = input.value;
-                break;
-              case "Backspace":
-                value = input.value;
-                break;
-              case "c":
-              case "C":
-                value = "";
-                input.value = "";
-                break;
-              case "x":
-                value += "*";
-              default:
-                input.value = value;
-                break;
-            }
-          });
-        } else {
-          input.setAttribute("type", "number");
-        }
-      });
+      wrapper.style.maxWidth = "320px";
     }
 
-    return elements;
-  };
+    input.after(wrapper);
+
+    calc.renderTo(wrapper, {
+      style: true,
+    });
+    calc.initControl();
+
+    const extraBtn = calc.controlsSection.querySelector(
+      "button[data-function=extra]"
+    );
+
+    extraBtn.innerHTML = "<strong>X</strong>";
+    calc.extra = () => {
+      wrapper.style.display = "none";
+    };
+    calc.onSubmit = () => (value) => (input.value = value);
+    calc.onClear = () => {
+      input.value = "";
+    };
+
+    input.onclick = (ev) => {
+      wrapper.style.display = "block";
+    };
+  });
 }
 
-// export default new InputCalculator();
+function getInputCalculators(query = "") {
+  const inputTypeCalculators = document.querySelectorAll(
+    "input[type=calculator]"
+  );
+  const inputQueryManuals = query
+    ? document.querySelectorAll(".input-calculator")
+    : [];
+
+  let inputCalculators = [];
+  if (inputTypeCalculators.length > 0) {
+    inputCalculators = [...inputCalculators, ...inputTypeCalculators];
+  }
+
+  if (inputQueryManuals.length > 0) {
+    inputCalculators = [...inputCalculators, , ...inputQueryManuals];
+  }
+  return inputCalculators;
+}
+
+class InputCalculator {
+  init(query) {
+    // const inputCalculators = getInputCalculators();
+    attachCalcToInput(getInputCalculators(query));
+  }
+}
+
+const inputCalculator = new InputCalculator();

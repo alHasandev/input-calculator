@@ -1,11 +1,9 @@
 // ES7 Module
-// import inputCalculator from "../index.js";
+// import inputCalculator from "input-calculator";
 
 // inputCalculator.init();
 
 // Common JS
-// You must include script for calculator js / alhasandev-calculator module
+// You must include script for calculator js from github / alhasandev-calculator module from npm
 
-const inputCalculator = new InputCalculator();
-
-inputCalculator.init();
+inputCalculator.init(".input-calculator");
