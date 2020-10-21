@@ -1,5 +1,5 @@
 // ES7 Module
-import inputCalculator from "../input-calculator.js";
+import inputCalculator from "../index.js";
 
 // inputCalculator.init();
 
