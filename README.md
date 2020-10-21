@@ -2,7 +2,7 @@
 
 Simple custom html element for input calculator type
 
-![alt text](https://alhasandev.github.io/input-calculator/test/preview.png)
+<!-- ![alt text](https://alhasandev.github.io/input-calculator/test/preview.png) -->
 
 ## Instalation
 
